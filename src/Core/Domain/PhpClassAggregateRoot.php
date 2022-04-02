@@ -19,7 +19,7 @@ class PhpClassAggregateRoot
 
     public static function new(string $nameSpace, string $name)
     {
-        return new self($nameSpace, $name);
+        return new self($nameSpace, ucfirst($name));
     }
 
     public function addProperty(string $key, string $jsonType)
@@ -36,6 +36,7 @@ class PhpClassAggregateRoot
 
     private function applyName(string $name)
     {
+        $this->appendLine('use JsonSerializable;', 2);
         $this->appendLine('class ' . $name . ' implements JsonSerializable {', 2);
         $this->name = $name;
     }
@@ -71,9 +72,9 @@ class PhpClassAggregateRoot
         foreach ($this->properties as $property) {
             $this->appendLine($property->getType() . ' $' . $property->getName() . ',', 1, 2);
         }
-        $this->appendLine('): {', 1, 1);
+        $this->appendLine(') {', 1, 1);
         foreach ($this->properties as $property) {
-            $this->appendLine('$obj->' . $property->getName() . ' = $' . $property->getName() . ';', 1, 2);
+            $this->appendLine('$this->' . $property->getName() . ' = $' . $property->getName() . ';', 1, 2);
         }
         $this->appendLine('}', 2, 1);
     }
