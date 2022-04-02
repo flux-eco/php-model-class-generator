@@ -1,0 +1,81 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "329e62398af980ba58df359b3e7eaac5",
+    "packages": [
+        {
+            "name": "flux-eco/json-schema-document",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flux-eco/json-schema-document.git",
+                "reference": "62c2249f75fe1a2511daf7be17c34f16758efd69"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flux-eco/json-schema-document/zipball/62c2249f75fe1a2511daf7be17c34f16758efd69",
+                "reference": "62c2249f75fe1a2511daf7be17c34f16758efd69",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-yaml": "*",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "swoole/ide-helper": ">=4.6"
+            },
+            "type": "flux-app",
+            "autoload": {
+                "psr-4": {
+                    "FluxEco\\JsonSchemaDocument\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "fluxlabs ag",
+                    "email": "support@fluxlabs.ch",
+                    "homepage": "https://fluxlabs.ch",
+                    "role": "Maintainer, Developer"
+                }
+            ],
+            "description": "Component for flux-capacitor apps developed by fluxlabs",
+            "homepage": "https://fluxlabs.ch",
+            "keywords": [
+                "flux-eco",
+                "fluxlabs",
+                "json-schema-document"
+            ],
+            "support": {
+                "email": "support@fluxlabs.ch",
+                "issues": "https://github.com/flux-eco/json-schema-document/issues",
+                "source": "https://github.com/flux-eco/json-schema-document/tree/v0.1.0"
+            },
+            "time": "2022-04-02T21:26:38+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-yaml": "*"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

@@ -1,0 +1,15 @@
+name: accounts
+type: object
+properties:
+  personId:
+    type: integer
+  firstname:
+    type: string
+  lastname:
+    type: string
+  email:
+    type: string
+  type:
+    type: string
+  lastChanged:
+    type: string
