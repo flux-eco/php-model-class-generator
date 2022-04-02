@@ -1,7 +1,7 @@
 {
   "name": "flux-eco/php-model-class-generator",
-  "description": "Component for flux-capacitor apps developed by fluxlabs",
-  "version": "0.0.1",
+  "description": "Writes model classes from json schema files",
+  "version": "0.0.2",
   "type": "flux-app",
   "keywords": [
     "flux-eco",
