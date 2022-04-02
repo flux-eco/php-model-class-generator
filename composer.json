@@ -1,0 +1,47 @@
+{
+  "name": "flux-eco/php-model-class-generator",
+  "description": "Component for flux-capacitor apps developed by fluxlabs",
+  "version": "0.0.1",
+  "type": "flux-app",
+  "keywords": [
+    "flux-eco",
+    "php-model-class-generator",
+    "fluxlabs"
+  ],
+  "homepage": "https://fluxlabs.ch",
+  "license": "GPL-3.0-only",
+  "authors": [
+    {
+      "name": "fluxlabs ag",
+      "email": "support@fluxlabs.ch",
+      "homepage": "https://fluxlabs.ch",
+      "role": "Maintainer, Developer"
+    }
+  ],
+  "support": {
+    "email": "support@fluxlabs.ch"
+  },
+  "require": {
+    "php": ">=8.0",
+    "flux-eco/json-schema-document": ">=0.1.0",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-yaml": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "FluxEco\\PhpModelClassGenerator\\": [
+        "src/"
+      ]
+    }
+  },
+  "config": {
+    "classmap-authoritative": true,
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "platform-check": true,
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true
+    }
+  }
+}
