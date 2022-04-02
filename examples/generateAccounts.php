@@ -6,5 +6,5 @@ $modelClassGenerator = FluxEco\PhpModelClassGenerator\PhpModelClassGeneratorApi:
 $modelClassGenerator->generateModelClass(
     __DIR__ . '/accounts.yaml',
     'FluxCap\ExampleApp\Core\Domain\Models',
-    '/tmp'
+    __DIR__ .'/generated'
 );

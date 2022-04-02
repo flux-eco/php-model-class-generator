@@ -62,6 +62,7 @@ class PhpClassAggregateRoot
         $this->createConstructor();
         $this->createGetter();
         $this->createToJson();
+        $this->createToArray();
         $this->createJsonSerialize();
         $this->appendLine('}', 0);
     }
@@ -96,10 +97,17 @@ class PhpClassAggregateRoot
         $this->appendLine('}', 2, 1);
     }
 
+    private function createToArray()
+    {
+        $this->appendLine('final public function toArray(): array {', 1, 1);
+        $this->appendLine('return get_object_vars($this);', 1, 2);
+        $this->appendLine('}', 1, 1);
+    }
+
     private function createJsonSerialize()
     {
         $this->appendLine('final public function jsonSerialize(): array {', 1, 1);
-        $this->appendLine('return get_object_vars($this);', 1, 2);
+        $this->appendLine('return $this->toArray();', 1, 2);
         $this->appendLine('}', 1, 1);
     }
 
