@@ -74,7 +74,7 @@ class PhpClassAggregateRoot
         foreach ($this->properties as $property) {
             $this->appendLine($property->getType() . ' $' . $property->getName() . ',', 1, 2);
         }
-        $this->appendLine(') {', 1, 1);
+        $this->appendLine('): self {', 1, 1);
 
         $this->appendLine('return new self(', 1, 2);
 
