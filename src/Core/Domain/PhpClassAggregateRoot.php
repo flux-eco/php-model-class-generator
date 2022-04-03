@@ -70,7 +70,7 @@ class PhpClassAggregateRoot
 
     private function createNew()
     {
-        $this->appendLine('public function new(', 1, 1);
+        $this->appendLine('public static function new(', 1, 1);
         foreach ($this->properties as $property) {
             $this->appendLine($property->getType() . ' $' . $property->getName() . ',', 1, 2);
         }
