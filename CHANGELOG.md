@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [0.0.4]
+fix: static new
+
 ## [0.0.3]
 change: implemented static new
 
