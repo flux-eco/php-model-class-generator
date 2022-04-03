@@ -60,6 +60,7 @@ class PhpClassAggregateRoot
     private function applyAllPropertiesSet() : void
     {
         $this->createConstructor();
+        $this->createNew();
         $this->createGetter();
         $this->createToJson();
         $this->createToArray();
@@ -67,9 +68,28 @@ class PhpClassAggregateRoot
         $this->appendLine('}', 0);
     }
 
+    private function createNew()
+    {
+        $this->appendLine('public function new(', 1, 1);
+        foreach ($this->properties as $property) {
+            $this->appendLine($property->getType() . ' $' . $property->getName() . ',', 1, 2);
+        }
+        $this->appendLine(') {', 1, 1);
+
+        $this->appendLine('return new self(', 1, 2);
+
+        $properties = [];
+        foreach ($this->properties as $property) {
+            $properties[] = '$' .$property->getName();
+        }
+        $this->appendLine(implode(', ', $properties), 1, 3);
+        $this->appendLine(');', 1, 2);
+        $this->appendLine('}', 2, 1);
+    }
+
     private function createConstructor()
     {
-        $this->appendLine('public function __construct(', 1, 1);
+        $this->appendLine('private function __construct(', 1, 1);
         foreach ($this->properties as $property) {
             $this->appendLine($property->getType() . ' $' . $property->getName() . ',', 1, 2);
         }

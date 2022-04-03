@@ -1,7 +1,7 @@
 {
   "name": "flux-eco/php-model-class-generator",
   "description": "Writes model classes from json schema files",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "flux-app",
   "keywords": [
     "flux-eco",
