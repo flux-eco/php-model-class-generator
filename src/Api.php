@@ -2,7 +2,7 @@
 
 namespace FluxEco\PhpModelClassGenerator;
 
-class PhpModelClassGeneratorApi
+class Api
 {
 
     private Core\Ports\Service $service;
@@ -14,7 +14,7 @@ class PhpModelClassGeneratorApi
 
     public static function new(): self
     {
-        $outbounds = Adapters\Configs\Outbounds::new();
+        $outbounds = Adapters\Outbounds::new();
         return new self(Core\Ports\Service::new($outbounds));
     }
 

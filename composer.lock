@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "329e62398af980ba58df359b3e7eaac5",
+    "content-hash": "d8ca63a31e819bbd59962d3eb38434d1",
     "packages": [
         {
             "name": "flux-eco/json-schema-document",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flux-eco/json-schema-document.git",
-                "reference": "62c2249f75fe1a2511daf7be17c34f16758efd69"
+                "reference": "0e6d197d44cfd45e5884f999c32864b10f8da5e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flux-eco/json-schema-document/zipball/62c2249f75fe1a2511daf7be17c34f16758efd69",
-                "reference": "62c2249f75fe1a2511daf7be17c34f16758efd69",
+                "url": "https://api.github.com/repos/flux-eco/json-schema-document/zipball/0e6d197d44cfd45e5884f999c32864b10f8da5e9",
+                "reference": "0e6d197d44cfd45e5884f999c32864b10f8da5e9",
                 "shasum": ""
             },
             "require": {
@@ -59,9 +59,9 @@
             "support": {
                 "email": "support@fluxlabs.ch",
                 "issues": "https://github.com/flux-eco/json-schema-document/issues",
-                "source": "https://github.com/flux-eco/json-schema-document/tree/v0.1.0"
+                "source": "https://github.com/flux-eco/json-schema-document/tree/v0.2.0"
             },
-            "time": "2022-04-02T21:26:38+00:00"
+            "time": "2022-04-03T01:02:15+00:00"
         }
     ],
     "packages-dev": [],
