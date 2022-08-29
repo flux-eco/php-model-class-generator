@@ -1,4 +1,4 @@
-# php-model-class-generator
+# php-class-generator
 
 This component creates model classes from json schema files
 
@@ -25,7 +25,7 @@ properties:
 
 generateAccounts.php
 ```
-fluxPhpModelClassGenerator\generateModelClass(
+fluxPhpClassGenerator\generateModelClass(
         __DIR__ . '/accounts.yaml',
         'FluxCap\ExampleApp\Core\Domain\Models',
         __DIR__ . '/generated'

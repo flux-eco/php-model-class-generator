@@ -1,0 +1,23 @@
+---
+$id: null
+$schema: http://json-schema.org/draft-07/schema#
+title: classDefinitionSchema
+type: object
+required:
+  - className
+  - subNamespace
+  - objectSchema
+name: apiClass
+properties:
+  className:
+    type: string
+  subNamespace:
+    $ref: srcNodeSubNamespace.yaml
+  objectSchema:
+    type: object
+  methods:
+    type: object
+  constants:
+    type: object
+  $useLines:
+    type: object

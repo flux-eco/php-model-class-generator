@@ -1,4 +1,4 @@
-name: accounts
+title: Account
 type: object
 properties:
   personId:
@@ -12,4 +12,10 @@ properties:
   type:
     type: string
   lastChanged:
-    type: string
+    type: object
+    title: DateTime
+    properties:
+      date:
+        type: string
+      time:
+        type: string

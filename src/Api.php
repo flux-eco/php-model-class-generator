@@ -1,6 +1,8 @@
 <?php
 
-namespace FluxEco\PhpModelClassGenerator;
+namespace FluxEco\PhpClassGenerator;
+use  FluxEco\PhpClassGenerator\Core\Domain;
+use FluxEco\PhpClassGenerator\Adapters\Commands\CreatePhpClassCode;
 
 class Api
 {
@@ -12,14 +14,43 @@ class Api
         $this->service = $service;
     }
 
-    public static function new(): self
+    public static function new() : self
     {
         $outbounds = Adapters\Outbounds::new();
         return new self(Core\Ports\Service::new($outbounds));
     }
 
-    public function generateModelClass(string $schemaFilePath, string $nameSpace, string $targetDirectoryPath) : void
-    {
-        $this->service->generateModelClass($schemaFilePath, $nameSpace, $targetDirectoryPath);
+    public function generatePhpClass(Adapters\Api\GeneratePhpClassRequest $generatePhpClassRequest): array {
+        print_r($generatePhpClassRequest);
+        return $this->service->createPhpClassCode(
+            CreatePhpClassCode::fromRequest($generatePhpClassRequest)
+        );
+    }
+
+    public function generateServiceClassLines(
+        string $className,
+        string $namespace,
+        string $filePath,
+        array $schema,
+        array $use = [],
+        array $additionalLines = [],
+        array $public_constants = []
+    ) : void {
+        $classLines = $this->service->createServiceClassLines($className, $namespace, $schema, $use, $additionalLines,
+            $public_constants);
+        $this->service->storeClassFile($classLines, $filePath);
+    }
+
+    public function generateModelClassLines(
+        string $className,
+        string $namespace,
+        string $filePath,
+        array $schema,
+        array $use = [],
+        array $additionalLines = [],
+        array $public_constants = []
+    ) : void {
+        $classLines = $this->service->createModelClassLines($className, $namespace, $schema, $use, $additionalLines, $public_constants);
+        $this->service->storeClassFile($classLines, $filePath);
     }
 }

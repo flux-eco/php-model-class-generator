@@ -1,11 +1,11 @@
 {
-  "name": "flux-eco/php-model-class-generator",
+  "name": "flux-eco/php-class-generator",
   "description": "Writes model classes from json schema files",
   "version": "1.0.0",
   "type": "flux-app",
   "keywords": [
     "flux-eco",
-    "php-model-class-generator",
+    "php-class-generator",
     "fluxlabs"
   ],
   "homepage": "https://fluxlabs.ch",
@@ -23,21 +23,14 @@
   },
   "require": {
     "php": ">=8.0",
-    "flux-eco/json-schema-document": ">=0.1.0",
     "ext-curl": "*",
     "ext-json": "*",
     "ext-yaml": "*"
   },
   "autoload": {
-    "files": [
-      "fn/generateModelClass.php"
-    ],
     "psr-4": {
-      "FluxEco\\PhpModelClassGenerator\\": [
+      "FluxEco\\PhpClassGenerator\\": [
         "src/"
-      ],
-      "fluxPhpModelClassGenerator\\": [
-        "fn/"
       ]
     }
   },

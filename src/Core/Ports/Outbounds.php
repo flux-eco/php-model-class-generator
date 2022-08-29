@@ -1,10 +1,10 @@
 <?php
 
-namespace FluxEco\PhpModelClassGenerator\Core\Ports;
+namespace FluxEco\PhpClassGenerator\Core\Ports;
 
-use FluxEco\PhpModelClassGenerator\Core\Domain;
+use FluxEco\PhpClassGenerator\Core\Domain;
 
 interface Outbounds
 {
-    public function getPhpClassFromSchemaFile($nameSpace, $schemaFilePath) : Domain\PhpClassAggregateRoot;
+
 }

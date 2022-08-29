@@ -1,6 +1,9 @@
 <?php
 
-namespace FluxEco\PhpModelClassGenerator\Core\Ports;
+namespace FluxEco\PhpClassGenerator\Core\Ports;
+
+use FluxEco\PhpClassGenerator\Core\Domain;
+use  FluxEco\PhpClassGenerator\Core\Application;
 
 class Service
 {
@@ -16,11 +19,76 @@ class Service
         return new self($outbounds);
     }
 
-    public function generateModelClass(string $schemaFilePath, string $nameSpace, string $targetDirectoryPath): void
-    {
-        $phpClass = $this->outbounds->getPhpClassFromSchemaFile($nameSpace, $schemaFilePath);
+    public function createPhpClassCode(
+        Commands\CreatePhpClassCode $command
+    ): array {
+        print_r($command);
+        $aggregate = Domain\ClassDefinitionAggregate::create
+        (
+            Application\PhpCodeWriter::new(),
+            $command->getClassName(),
+            $command->getNamespace(),
+            $command->getProperties(),
+            $command->getNamespacesToImport(),
+            $command->getConstances(),
+            $command->getMethodsCode()
+        );
 
-        $classLines = $phpClass->getClassLines();
-        file_put_contents($targetDirectoryPath . '/' . $phpClass->getName() . '.php', $classLines);
+        return $aggregate->writeCode();
     }
+
+    public function createModelClassLines(
+        string $className,
+        string $namespace,
+        array $schema,
+        array $use = [],
+        array $additionalLines = [],
+        array $public_constants = []
+    ) : array {
+
+        $aggregate = Aggregate::new();
+        return $aggregate->createModelClassLines(
+            $className,
+            $namespace,
+            $schema,
+            $use,
+            $additionalLines,
+            $public_constants
+        );
+    }
+
+    public function createServiceClassLines(
+        string $className,
+        string $namespace,
+        array $schema,
+        array $use = [],
+        array $additionalLines = [],
+        array $public_constants = []
+    ) : array {
+
+        $aggregate = Aggregate::new();
+        return $aggregate->createServiceClassLines(
+            $className,
+            $namespace,
+            $schema,
+            $use,
+            $additionalLines,
+            $public_constants
+        );
+    }
+
+    public function storeClassFile(
+        array $classLines,
+        string $filePath,
+    ) : void {
+        $pathParts = explode("/", $filePath);
+
+        $targetDirectoryPath = str_replace("/" . end($pathParts), "", $filePath);
+        if (is_dir($targetDirectoryPath) === false) {
+            mkdir($targetDirectoryPath);
+        }
+
+        file_put_contents($filePath, $classLines);
+    }
+
 }
