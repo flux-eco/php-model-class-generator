@@ -1,8 +1,10 @@
 <?php
 
 namespace FluxEco\PhpClassGenerator;
+use FluxEco\PhpClassGenerator\Adapters\Api\GenerateServerRequest;
 use  FluxEco\PhpClassGenerator\Core\Domain;
 use FluxEco\PhpClassGenerator\Adapters\Commands\CreatePhpClassCode;
+use FluxEco\PhpClassGenerator\Adapters\Commands\CreatePhpServerCode;
 
 class Api
 {
@@ -25,6 +27,12 @@ class Api
         return $this->service->createPhpClassCode(
             CreatePhpClassCode::fromRequest($generatePhpClassRequest)
         );
+    }
+
+    public function generateServer(string $serverId, string $serverUrl, array $operationBindings): array {
+        return $this->service->createPhpServerCode(
+            GenerateServerRequest::fromHttpOperationBinding($serverId, $serverUrl, $operationBindings)->toCommand();
+        )
     }
 
     public function generateServiceClassLines(

@@ -37,6 +37,24 @@ class Service
         return $aggregate->writeCode();
     }
 
+    public function createPhpServerCode(
+        Commands\CreatePhpServerCode $command
+    ): array {
+        print_r($command);
+        $aggregate = Domain\ClassDefinitionAggregate::create
+        (
+            Application\PhpCodeWriter::new(),
+            $command->getClassName(),
+            $command->getNamespace(),
+            $command->getProperties(),
+            $command->getNamespacesToImport(),
+            $command->getConstances(),
+            $command->getMethodsCode()
+        );
+
+        return $aggregate->writeCode();
+    }
+
     public function createModelClassLines(
         string $className,
         string $namespace,

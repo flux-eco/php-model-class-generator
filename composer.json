@@ -22,7 +22,7 @@
     "email": "support@fluxlabs.ch"
   },
   "require": {
-    "php": ">=8.0",
+    "php": ">=8.1",
     "ext-curl": "*",
     "ext-json": "*",
     "ext-yaml": "*"
